@@ -7,6 +7,7 @@ import LandingPage from './landing-page';
 // import Dashboard from './dashboard';
 import TablesPage from './tables-page';
 import ChecksPage from './checks-page';
+import OrderPage from './order-page';
 import RegistrationPage from './registration-page';
 import LoginPage from './login-page';
 import {refreshAuthToken} from '../actions/auth';
@@ -49,6 +50,7 @@ export class App extends React.Component {
                 <Route exact path="/dashboard" component={TablesPage} />
                 <Route exact path="/tables" component={TablesPage} />
                 <Route exact path="/checks" component={ChecksPage} />
+                <Route exact path="/order" component={OrderPage} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/login" component={LoginPage} />
             </div>

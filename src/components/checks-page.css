@@ -14,3 +14,7 @@
 .check p {
   margin: 0;
 }
+
+.check .field {
+  font-weight: bold;
+}

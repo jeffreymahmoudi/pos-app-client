@@ -5,6 +5,11 @@ body {
   font-family: sans-serif;
 }
 
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .flexContainer {
   display: flex;
 }

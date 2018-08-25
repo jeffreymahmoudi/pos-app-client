@@ -18,9 +18,10 @@ export class ChecksPage extends React.Component {
                 <hr />
                 <div className="v-flex-container">
                     <div className="check">
-                      <p className="updated">Updated At</p>
-                      <p className="table-number">Table: 1</p>
-                      <p className="total">Total: $1.00</p>
+                      <p className="updated"><span className="field">Updated: </span>1/1/1111 24:00:00G</p>
+                      <p className="status"><span className="field">Status: </span>Closed</p>
+                      <p className="table-number"><span className="field">Table: </span>1</p>
+                      <p className="total"><span className="field">Total: </span>$1.00</p>
                       <details>
                         <summary>Ordered Items</summary>
                             <div>
@@ -38,9 +39,10 @@ export class ChecksPage extends React.Component {
                         </details>
                     </div>
                     <div className="check">
-                      <p className="updated">Updated At</p>
-                      <p className="table-number">Table: 1</p>
-                      <p className="total">Total: $1.00</p>
+                      <p className="updated"><span className="field">Updated: </span>1/1/1111 24:00:00G</p>
+                      <p className="status"><span className="field">Status: </span>Closed</p>
+                      <p className="table-number"><span className="field">Table: </span>1</p>
+                      <p className="total"><span className="field">Total: </span>$1.00</p>
                       <details>
                         <summary>Ordered Items</summary>
                             <div>
@@ -58,9 +60,10 @@ export class ChecksPage extends React.Component {
                         </details>
                     </div>
                     <div className="check">
-                      <p className="updated">Updated At</p>
-                      <p className="table-number">Table: 1</p>
-                      <p className="total">Total: $1.00</p>
+                      <p className="updated"><span className="field">Updated: </span>1/1/1111 24:00:00G</p>
+                      <p className="status"><span className="field">Status: </span>Closed</p>
+                      <p className="table-number"><span className="field">Table: </span>1</p>
+                      <p className="total"><span className="field">Total: </span>$1.00</p>
                       <details>
                         <summary>Ordered Items</summary>
                             <div>
