@@ -1,8 +1,8 @@
-[Moody POS](https://moody-pos-client.herokuapp.com/)
+[Moody POS](https://moody-pos-app-client.herokuapp.com/)
 ============================
 This application is a minimal PoS that handles a menu with tables and checks for a restaurant. It was built to learn the skills of async operations using a Redux store.
 
-Live [demo](https://moody-pos-client.herokuapp.com/)
+Live [demo](https://moody-pos-app-client.herokuapp.com/)
 
 Credentials
 
@@ -15,7 +15,7 @@ Password: password
 <img src="https://jeffreymahmoudi.github.io/thinkful-portfolio/img/projects/project1.jpg" alt="app log" width="60%">
 
 ## API Documentation
-Can be found [here](https://github.com/jeffreymahmoudi/moody-pos-server)
+Can be found [here](https://github.com/jeffreymahmoudi/moody-pos-app-server)
 
 ## Tech Stack
 * [create-react-app](https://github.com/facebook/create-react-app)
