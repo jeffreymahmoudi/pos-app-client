@@ -5,8 +5,11 @@ This application is a minimal PoS that handles a menu with tables and checks for
 Live [demo](https://moody-pos-client.herokuapp.com/)
 
 Credentials
-user0
-password
+
+Username: user0
+
+Password: password
+
 
 ## Screenshots
 <img src="https://jeffreymahmoudi.github.io/thinkful-portfolio/img/projects/project1.jpg" alt="app log" width="60%">
