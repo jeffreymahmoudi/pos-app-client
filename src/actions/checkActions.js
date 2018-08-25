@@ -20,7 +20,14 @@ export const fetchChecksError = error => ({
 //
 export const fetchChecks = () => (dispatch, getState) => {
   dispatch(fetchChecksRequest())
-  fetch(`${API_BASE_URL}/checks`)
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/checks`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText)
@@ -140,8 +147,12 @@ export const fetchCloseCheckError = error => ({
 //
 export const fetchCloseCheck = (check) => (dispatch, getState) => {
   dispatch(fetchCloseCheckRequest())
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/checks/${check.id}/close`, {
-    method: 'PUT'
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
   })
   .then(res => {
     if (!res.ok) {
@@ -151,7 +162,6 @@ export const fetchCloseCheck = (check) => (dispatch, getState) => {
   })
   .then(checks => {
     dispatch(fetchCloseCheckSuccess(checks))
-    // dispatch(clearCheck())
   })
   .catch(error => {
     dispatch(fetchCloseCheckError(error))
@@ -180,7 +190,14 @@ export const fetchTableCheckError = error => ({
 
 export const fetchTableCheck = (table) => (dispatch, getState) => {
   dispatch(fetchTableCheckRequest())
-  fetch(`${API_BASE_URL}/checks`)
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/checks`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText)

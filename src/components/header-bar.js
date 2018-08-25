@@ -12,7 +12,7 @@ export class HeaderBar extends React.Component {
     clearAuthToken();
   }
 
-  renderAuth = () => {
+  renderAuth () {
     return (
       <React.Fragment>
         <li>
@@ -30,7 +30,7 @@ export class HeaderBar extends React.Component {
     );
   }
 
-  renderNoAuth = () => {
+  renderNoAuth () {
     return (
       <React.Fragment>
         <li>

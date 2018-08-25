@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectTable } from '../actions/tableActions'
+import { fetchTables, selectTable } from '../actions/tableActions'
 import requiresLogin from './requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
 
 import './tables-page.css';
 
 export class TablesPage extends React.Component {
+  componentDidMount = () => {    
+    this.props.loadTablesConnect()
+  }
+
   onSelectedTableChange = (selectedTable) => {
     this.props.selectTableConnect(selectedTable)
   }
@@ -61,6 +64,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  loadTablesConnect: () => dispatch(fetchTables()),
   selectTableConnect: (table) => dispatch(selectTable(table))
 });
 

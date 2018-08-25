@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchMenu } from '../actions/menuActions';
-import { fetchTables } from '../actions/tableActions';
 import {Route, withRouter} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
@@ -13,12 +11,7 @@ import RegistrationPage from './registration-page';
 import LoginPage from './login-page';
 import {refreshAuthToken} from '../actions/auth';
 
-export class App extends React.Component {
-    componentDidMount = () => {
-        this.props.loadMenuConnect()
-        this.props.loadTablesConnect()
-    }
-
+export class App extends React.Component {    
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -69,10 +62,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-const mapDispatchToProps = dispatch => ({
-    loadMenuConnect: () => dispatch(fetchMenu()),
-    loadTablesConnect: () => dispatch(fetchTables())
-  })
-
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps)(App));
