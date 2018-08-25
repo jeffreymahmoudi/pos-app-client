@@ -4,6 +4,9 @@ import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
+import menuReducer from './reducers/menuReducer';
+import tablesReducer from './reducers/tablesReducer';
+import checksReducer from './reducers/checksReducer';
 import protectedDataReducer from './reducers/protected-data';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 
@@ -11,6 +14,9 @@ const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
+    menu: menuReducer,
+    tables: tablesReducer,
+    checks: checksReducer,
     protectedData: protectedDataReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
