@@ -34,6 +34,7 @@ const checks = (state = initialState, action) => {
     case types.FETCH_TABLE_CHECK_SUCCESS:
     case types.FETCH_NEW_CHECK_SUCCESS:
     case types.FETCH_ADD_CHECK_ITEM_SUCCESS:
+    case types.FETCH_REMOVE_CHECK_ITEM_SUCCESS:
     case types.FETCH_CLOSE_CHECK_SUCCESS:
       return Object.assign({}, state, {
         selectedCheck: action.check

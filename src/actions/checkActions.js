@@ -63,9 +63,11 @@ export const fetchNewCheckError = error => ({
 //
 export const fetchNewCheck = (table) => (dispatch, getState) => {
   dispatch(fetchNewCheckRequest())
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/checks`, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${authToken}`,
       'Content-type': 'application/json'
     },
     body: JSON.stringify({tableId: table.id})
@@ -103,11 +105,13 @@ export const fetchAddCheckItemError = error => ({
 //
 // Async Request
 //
-export const fetchAddCheckItem = (check, item) => (dispatch) => {
+export const fetchAddCheckItem = (check, item) => (dispatch, getState) => {
   dispatch(fetchAddCheckItemRequest())
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/checks/${check.id}/addItem`, {
     method: 'PUT',
     headers: {
+      'Authorization': `Bearer ${authToken}`,
       'Content-type': 'application/json'
     },
     body: JSON.stringify({itemId: item.id})
@@ -123,6 +127,50 @@ export const fetchAddCheckItem = (check, item) => (dispatch) => {
   })
   .catch(error => {
     dispatch(fetchAddCheckItemError(error))
+  })
+}
+
+
+
+export const fetchRemoveCheckItemRequest = () => ({
+  type: types.FETCH_REMOVE_CHECK_ITEM_REQUEST
+})
+
+export const fetchRemoveCheckItemSuccess = check => ({
+  type: types.FETCH_REMOVE_CHECK_ITEM_SUCCESS,
+  check
+})
+
+export const fetchRemoveCheckItemError = error => ({
+  type: types.FETCH_REMOVE_CHECK_ITEM_ERROR,
+  error
+})
+
+//
+// Async Request
+//
+export const fetchRemoveCheckItem = (check, orderedItem) => (dispatch, getState) => {
+  dispatch(fetchRemoveCheckItemRequest())
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/checks/${check.id}/removeItem`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({orderedItemId: orderedItem._id})
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res.json();
+  })
+  .then(check => {
+    dispatch(fetchRemoveCheckItemSuccess(check))
+  })
+  .catch(error => {
+    dispatch(fetchRemoveCheckItemError(error))
   })
 }
 

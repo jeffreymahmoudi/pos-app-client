@@ -4,13 +4,61 @@
 
 .order .check-container {
   min-width: 280px;
+  /* border: 1px solid #000; */
   padding: 5px;
+  margin: 5px;
+}
+
+.order .check-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;  
+}
+
+.order .check-container ul li {
+  margin-bottom: 5px;
+}
+
+.order .check-container .item-price {
+  margin-left: 5px;
+}
+
+.order .check-container .check-buttons {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+/* .order .check-container .check-buttons button { */
+.order button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .order .menu-container {
   min-width: 280px;
-  border: 1px solid #000;
   padding: 5px;
+}
+
+.order .menu-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.order .menu-button {
+  float: left;
+  margin: 0 5px;
 }
 
 @media only screen and (min-width: 1000px) {

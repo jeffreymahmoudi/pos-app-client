@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import { fetchMenu } from '../actions/menuActions';
-import { fetchTableCheck, fetchNewCheck, fetchAddCheckItem, fetchCloseCheck } from '../actions/checkActions'
+import { fetchTableCheck, fetchNewCheck, fetchAddCheckItem, fetchRemoveCheckItem, fetchCloseCheck } from '../actions/checkActions'
 import requiresLogin from './requires-login';
 
 import './order-page.css';
@@ -19,6 +19,10 @@ export class OrderPage extends React.Component {
 
   onAddCheckItemChange = (check, item) => {
     this.props.loadAddCheckItemConnect(check, item)
+  }
+
+  onRemoveCheckItemChange = (check, orderedItem) => {
+    this.props.loadRemoveCheckItemConnect(check, orderedItem)
   }
 
   onCloseCheckChange = (selectedCheck) => {
@@ -53,7 +57,8 @@ export class OrderPage extends React.Component {
 
     const order = this.props.selectedCheck.orderedItems.map((item, index) =>
       <li key={index}>
-        <span className="item-price">${item.price}.00</span> <span className="item-name">{item.name}</span>
+        { this.props.selectedCheck && !this.props.selectedCheck.closed ? <button onClick={() => this.onRemoveCheckItemChange(this.props.selectedCheck, item)}>Remove Item</button> : '' }
+        <span className="item-price">${item.itemId.price}.00</span> <span className="item-name">{item.itemId.name}</span>
       </li>
     )
     return order;
@@ -68,7 +73,7 @@ export class OrderPage extends React.Component {
     else {
       let total = 0;
       for(let i = 0; i < this.props.selectedCheck.orderedItems.length; i++) {
-        total += this.props.selectedCheck.orderedItems[i].price
+        total += this.props.selectedCheck.orderedItems[i].itemId.price
       }
       return (
         <span>Total: ${total}.00</span>
@@ -83,8 +88,29 @@ export class OrderPage extends React.Component {
           {this.renderCheckButtons()}
         </div>
         <h3>ORDER: Table {this.props.selectedTable.number}</h3>
+        {this.renderCheckTotal()}
+        <hr />
+        <div className="check-items-wrapper">
+          <ul className="check-list">
+            {this.renderCheckItems()}
+          </ul>
+        </div>
       </div>
     );
+  }
+
+  renderMenuItems = () => {
+    const menu = this.props.menu.map((item, index) =>
+      <li key={index}>
+        <div className="menu-item">
+          <div className="menu-button">
+            {!this.props.selectedCheck || this.props.selectedCheck.closed ? '' : <button onClick={() => this.onAddCheckItemChange(this.props.selectedCheck, item)}>Add Item</button>}
+          </div>
+          <h2>${item.price} - {item.name}</h2>
+        </div>
+      </li>
+    )
+    return menu;
   }
 
   renderMenu = () => {
@@ -94,7 +120,10 @@ export class OrderPage extends React.Component {
 
     return (
       <div className="menu-container">
-        <h3>Menu</h3>
+        <h3>MENU</h3>
+        <ul className="menu-list">
+          {this.renderMenuItems()}
+        </ul>
       </div>
     );
   }
@@ -109,9 +138,9 @@ export class OrderPage extends React.Component {
     return (
       <div className="order">
         <h1>Order</h1>
-        <p>Check status.</p>
+        <p>Open a check to add items. The check will be loaded if not previously closed.</p>
         <hr />
-        <div className="c-flex-container order-container">
+        <div className="flex-container order-container">
             {this.renderCheck()}
             {this.renderMenu()}
         </div>
@@ -136,6 +165,7 @@ const mapDispatchToProps = dispatch => ({
   loadTableCheckConnect: (table) => dispatch(fetchTableCheck(table)),
   loadNewCheckConnect: (table) => dispatch(fetchNewCheck(table)),
   loadAddCheckItemConnect: (check, item) => dispatch(fetchAddCheckItem(check, item)),
+  loadRemoveCheckItemConnect: (check, orderedItem) => dispatch(fetchRemoveCheckItem(check, orderedItem)),
   loadCloseCheckConnect: (check) => dispatch(fetchCloseCheck(check))
 })
 
