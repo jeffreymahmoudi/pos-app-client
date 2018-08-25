@@ -1,0 +1,26 @@
+header {
+  background-color: #3e3e3e;
+  color: #ffffff;
+}
+
+header .nav {
+  list-style: none;
+  padding: 0px;
+}
+
+header .nav a {
+  text-decoration: none;
+  display: block;
+  padding: 0 1em;
+  color: white;
+}
+
+header .nav button {
+  background: none;
+  display: block;
+  padding: 0 1em;
+  color: white;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}

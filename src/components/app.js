@@ -4,8 +4,11 @@ import {Route, withRouter} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
-import Dashboard from './dashboard';
+// import Dashboard from './dashboard';
+import TablesPage from './tables-page';
+import ChecksPage from './checks-page';
 import RegistrationPage from './registration-page';
+import LoginPage from './login-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -43,8 +46,11 @@ export class App extends React.Component {
             <div className="app">
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/dashboard" component={TablesPage} />
+                <Route exact path="/tables" component={TablesPage} />
+                <Route exact path="/checks" component={ChecksPage} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path="/login" component={LoginPage} />
             </div>
         );
     }
