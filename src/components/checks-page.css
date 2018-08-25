@@ -18,3 +18,9 @@
 .check .field {
   font-weight: bold;
 }
+
+.check-order {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #000;
+}
