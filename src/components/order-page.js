@@ -114,7 +114,7 @@ export class OrderPage extends React.Component {
   }
 
   renderMenu = () => {
-    if(!this.props.selectedCheck) {
+    if(!this.props.selectedCheck || this.props.selectedCheck.closed) {
       return "";
     }
 
