@@ -38,20 +38,16 @@ export class ChecksPage extends React.Component {
     }
 
     const checks = this.props.checks.map((check, index) => (
-      // <Link to={`/checks/${check.id}`}>
       <div className="check-order" key={index}>
         <p>{new Date(check.updatedAt).toUTCString()}</p>
-        <p>Table: {check.tableId}</p>
-        <p>
-          Total: ${this.renderTotal(check)}
-          .00
-        </p>
+        <p>Table: {check.tableId.number}</p>
+        <p>Status: {check.closed ? "Closed" : "Open"}</p>
+        <p>Total: ${this.renderTotal(check)}.00</p>
         <details>
           <summary>Ordered Items</summary>
           {this.renderOrderedItems(check)}
         </details>
       </div>
-      // </Link>
     ));
 
     return checks;

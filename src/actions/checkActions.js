@@ -257,7 +257,7 @@ export const fetchTableCheck = (table) => (dispatch, getState) => {
       dispatch(fetchTableCheckNotFound())
     }
 
-    const check = checks.find(check => check.tableId === table.id && !check.closed)
+    const check = checks.find(check => check.tableId.id === table.id && !check.closed)
     if(!check) {
       dispatch(fetchTableCheckNotFound())
     }
