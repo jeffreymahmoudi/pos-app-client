@@ -16,13 +16,13 @@ export class TablesPage extends React.Component {
                 <h1>Tables</h1>
                 <p>Select a table to begin an order. Loads table check if previously not closed.</p>
                 <hr />
-                <div className="flex-container">
-                    <div className="table flex-container">
+                <div className="c-flex-container">
+                    <div className="table c-flex-container">
                       <p className="table-number">Table 1</p>
                     </div>
-                    <div className="table flex-container">
+                    <div className="table c-flex-container">
                       <p className="table-number">Table 2</p></div>
-                    <div className="table flex-container">
+                    <div className="table c-flex-container">
                       <span className="table-number">Table 3</span>
                     </div>
                 </div>
