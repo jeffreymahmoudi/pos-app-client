@@ -1,0 +1,25 @@
+.tables {
+  padding: 0 1em;
+}
+
+.table {
+  width: 200px;
+  height: 200px;
+  background: none;
+  border: 3px solid #000;
+  color: #000;
+  margin: 10px;
+  border-radius: 50%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.table:hover {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+.table-number {
+  margin: 0;
+  font-size: 22px;
+}

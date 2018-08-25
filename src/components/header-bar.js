@@ -47,7 +47,7 @@ export class HeaderBar extends React.Component {
   render() {
     return (
       <header>
-        <nav className="flexContainer" role="navigation">
+        <nav className="flexContainer">
           <ul className="nav flexItem flexStart">
             <li>
               <Link to="/" className="logo">Moody POS</Link>
