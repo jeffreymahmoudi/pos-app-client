@@ -21,5 +21,16 @@ body {
 .flex-container {
   display: flex;
   flex-flow: row wrap;
+}
+
+.c-flex-container {
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;  
+  align-items: center;
+}
+
+.v-flex-container {
+  display: flex;
+  flex-flow: column;
 }
